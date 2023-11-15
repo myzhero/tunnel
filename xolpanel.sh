@@ -1,5 +1,5 @@
 #!/bin/bash
-domain="$(cat /etc/xray/domain)
+domain="$(cat /etc/xray/domain)"
 sldomain="$(cat /etc/xray/domain)"
 #install
 rm -rf xolpanel.sh
