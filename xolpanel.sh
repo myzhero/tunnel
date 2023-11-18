@@ -1,12 +1,14 @@
 #!/bin/bash
+apt update -y
+apt upgrade -y
 domain="$(cat /etc/xray/domain)"
 sldomain="$(cat /etc/xray/domain)"
 #install
 rm -rf xolpanel.sh
 apt update && apt upgrade
 apt install python3 python3-pip git
-git clone https://github.com/myzhero/xolpanel.git
-unzip xolpanel/xolpanel.zip
+git clone https://github.com/myzhero/tunnel.git
+unzip tunnel/xolpanel.zip
 pip3 install -r xolpanel/requirements.txt
 pip3 install pillow
 
