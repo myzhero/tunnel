@@ -190,33 +190,6 @@ echo -e "     ${y}│$NC User          ${yy}= $g $username \e[0m"
 echo -e "     ${y}│$NC Script Status ${yy}= $NC $sts \e[0m"
 echo -e "     ${y}│$NC Expired       ${yy}= $NC $exp ( ${w}$certifacate${NC} Days ) $NC"
 echo -e "     ${y}╰────────────────────────────────────────────╯${NC}"
-echo -e " ${y}╭────────────────────────────────────────────────────╮${NC}"
-echo -e " ${y}│$NC   ${Blue}[${p}01${NC}${Blue}]$NC ${gg}MENU SSH OVPN       $NC   ${Blue}[${p}07${NC}${Blue}]$NC ${gg}MENU BOT       $y │$NC" 
-echo -e " ${y}│$NC   ${Blue}[${p}02${NC}${Blue}]$NC ${gg}MENU VMESS          $NC   ${Blue}[${p}08${NC}${Blue}]$NC ${gg}INFO PORT      $y │$NC"    
-echo -e " ${y}│$NC   ${Blue}[${p}03${NC}${Blue}]$NC ${gg}MENU VLESS          $NC   ${Blue}[${p}09${NC}${Blue}]$NC ${gg}CHECK CPU/RAM  $y │$NC"  
-echo -e " ${y}│$NC   ${Blue}[${p}04${NC}${Blue}]$NC ${gg}MENU TROJAN         $NC   ${Blue}[${p}10${NC}${Blue}]$NC ${gg}CHANGE DOMAIN  $y │$NC"
-echo -e " ${y}│$NC   ${Blue}[${p}05${NC}${Blue}]$NC ${gg}MENU SHADOWSOCK     $NC   ${Blue}[${p}11${NC}${Blue}]$NC ${gg}CHECK RUNNING  $y │$NC"
-echo -e " ${y}│$NC   ${Blue}[${p}06${NC}${Blue}]$NC ${gg}MENU SYSTEM         $NC   ${Blue}[${p}12${NC}${Blue}]$NC ${gg}SPEEDTEST VPS  $y │$NC"
-echo -e " ${y}╰────────────────────────────────────────────────────╯${NC}"
-echo
-read -p "  Choose Menu In [ 1 - 12 ] : " opt
 echo -e ""
-case $opt in
-1) clear ; m-sshws ;;
-2) clear ; m-vmess ;;
-3) clear ; m-vless ;;
-4) clear ; m-trojan ;;
-5) clear ; m-ssws ;;
-6) clear ; m-set ;;
-7) clear ; m-bot ;;
-8) clear ; prot ;;
-9) clear
-gotop 
-echo -e " Back To Menu In 2s . . ."
-sleep 2
-menu ;;
-10) clear ; addhost ;;
-11) clear ; run ;;
-12) clear ; speedtest ;;
-*) menu ;;
-esac
+echo -e "         To access use ${KIRI} $w menu  ${NC}${KANAN} command"
+
