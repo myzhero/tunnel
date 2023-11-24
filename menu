@@ -15,7 +15,7 @@ RED='\033[0;31m'
 NC='\033[0m'
 gray="\e[1;30m"
 Blue="\033[0;34m"
-green='\033[0;32m'
+green='\033[1;92m'
 grenbo="\e[92;1m"
 purple="\033[1;95m"
 YELL='\033[0;33m'
@@ -118,28 +118,28 @@ fi
 if [[ $haproxy_service == "running" ]]; then 
    status_haproxy="${green}ON✓${NC}"
 else
-   status_haproxy="${z}🔴${NC} "
+   status_haproxy="${z}OFF ${NC} "
 fi
 
 # STATUS SERVICE XRAY
 if [[ $xray_service == "running" ]]; then 
    status_xray="${green}ON✓${NC}"
 else
-   status_xray="${z}🔴${NC} "
+   status_xray="${z}OFF ${NC} "
 fi
 
 # STATUS SERVICE NGINX
 if [[ $nginx_service == "running" ]]; then 
    status_nginx="${green}ON✓${NC}"
 else
-   status_nginx="${z}🔴${NC} "
+   status_nginx="${z}OFF ${NC} "
 fi
 
 # STATUS SERVICE Dropbear
 if [[ $dropbear_service == "running" ]]; then 
    status_dropbear="${green}ON✓${NC}"
 else
-   status_dropbear="${z}🔴${NC} "
+   status_dropbear="${z}OFF ${NC} "
 fi
 #####INFOAKUN
 vlx=$(grep -c -E "^#& " "/etc/xray/config.json")
@@ -159,7 +159,7 @@ r="\033[1;31m"
 a=" ${z}ACCOUNT" 
 echo -e ""
 echo -e " ${y}╭────────────────────────────────────────────────────╮${NC}"
-echo -e " ${y}│$NC \e[1;92;41m                ZheeVpn Tunneling                 ${NC}${y} │$NC"
+echo -e " ${y}│$NC \e[1;92;41m              AutoScript By ZHEEVPN               ${NC}${y} │$NC"
 echo -e " ${y}╰────────────────────────────────────────────────────╯${NC}"
 echo -e " ${y}╭────────────────────────────────────────────────────╮${NC}"
 echo -e " ${y}│$NC$z • $NC${r}ISP    ${yy}=$NC $ISP${NC}"
@@ -171,22 +171,24 @@ echo -e " ${y}│$NC$z • $NC${r}UPTIME ${yy}=$NC $SERONLINE${NC}"
 echo -e " ${y}│$NC$z • $NC${r}DOMAIN ${yy}=$z $domain${NC}"
 echo -e " ${y}│$NC$z • $NC${r}IP     ${yy}=$z $IPVPS${NC}"
 echo -e " ${y}╰─────────────────────────────────────────────────────╯${NC}"
-echo -e "       ${z}───────────────────────────────────────────${NC}" | lolcat
-echo -e "               ${z}SSH/OPENVPN$NC $yy=$NC $ssh1$NC $a"
-echo -e "               ${z}VMESS$NC       $yy=$NC $vma$NC $a"
-echo -e "               ${z}VLESS$NC       $yy=$NC $vla$NC $a"
-echo -e "               ${z}TROJAN$NC      $yy=$NC $trb$NC $a"
-echo -e "               ${z}SHADOWSOCK$NC  $yy=$NC $ssa$NC $a"
-echo -e "       ${z}───────────────────────────────────────────${NC}" | lolcat
-echo -e " ${y}╭───────────────────────────────────────────────────╮${NC}"
-echo -e " ${y}│ ${NC}${z} SSH$NC : $status_ssh      $z NGINX$NC : $status_nginx       $z XRAY$NC : $status_xray     $NC${y}│$NC" 
+echo -e "       ${z}╭─────────────────────────────────────────╮${NC}" | lolcat
+echo -e "                        ${gg} TOTAL ACCOUNTS ${NC}"
+echo -e ""
+echo -e "               ${z}SSH/OVPN$NC    $yy=$NC$r $ssh1$NC $a"
+echo -e "               ${z}VMESS$NC       $yy=$NC$r $vma$NC $a"
+echo -e "               ${z}VLESS$NC       $yy=$NC$r $vla$NC $a"
+echo -e "               ${z}TROJAN$NC      $yy=$NC$r $trb$NC $a"
+echo -e "               ${z}SHADOWSOCK$NC  $yy=$NC$r $ssa$NC $a"
+echo -e "       ${z}╰─────────────────────────────────────────╯${NC}" | lolcat
+echo -e " ${y}╭────────────────────────────────────────────────────╮${NC}"
+echo -e " ${y}│ ${NC}${Blue} SSH$NC : $status_ssh   │  $Blue NGINX$NC : $status_nginx   │   $Blue XRAY$NC : $status_xray     $NC${y}│$NC" 
 #echo -e " ${y}│ ${NC}${z} WS-ePRO$NC : $status_ws_epro  $z DROPBEAR$NC : $status_dropbear    $z HAPROXY$NC : $status_haproxy  $NC${y}│$NC" 
 echo -e " ${y}╰────────────────────────────────────────────────────╯${NC}"
 echo -e "     ${y}╭───────────────────────────────────────────╮${NC}"
 echo -e "     ${y}│$NC Version       ${yy}= $g V.2${NC}"
 echo -e "     ${y}│$NC User          ${yy}= $g $username \e[0m"
-echo -e "     ${y}│$NC Script Status ${yy}=${NC} $sts \e[0m"
-echo -e "     ${y}│$NC Expired       ${yy}= ${NC} $exp ( ${w}$certifacate${NC} Days ) $NC"
+echo -e "     ${y}│$NC Script Status ${yy}= $NC $sts \e[0m"
+echo -e "     ${y}│$NC Expired       ${yy}= $NC $exp ( ${w}$certifacate${NC} Days ) $NC"
 echo -e "     ${y}╰───────────────────────────────────────────╯${NC}"
 echo -e " ${y}╭────────────────────────────────────────────────────╮${NC}"
 echo -e " ${y}│$NC   ${Blue}[${p}01${NC}${Blue}]$NC ${gg}MENU SSH OVPN       $NC   ${Blue}[${p}07${NC}${Blue}]$NC ${gg}MENU BOT       $y │$NC" 
@@ -194,7 +196,7 @@ echo -e " ${y}│$NC   ${Blue}[${p}02${NC}${Blue}]$NC ${gg}MENU VMESS          $
 echo -e " ${y}│$NC   ${Blue}[${p}03${NC}${Blue}]$NC ${gg}MENU VLESS          $NC   ${Blue}[${p}09${NC}${Blue}]$NC ${gg}CHECK CPU/RAM  $y │$NC"  
 echo -e " ${y}│$NC   ${Blue}[${p}04${NC}${Blue}]$NC ${gg}MENU TROJAN         $NC   ${Blue}[${p}10${NC}${Blue}]$NC ${gg}CHANGE DOMAIN  $y │$NC"
 echo -e " ${y}│$NC   ${Blue}[${p}05${NC}${Blue}]$NC ${gg}MENU SHADOWSOCK     $NC   ${Blue}[${p}11${NC}${Blue}]$NC ${gg}CHECK RUNNING  $y │$NC"
-echo -e " ${y}│$NC   ${Blue}[${p}06${NC}${Blue}]$NC ${gg}MENU SYSTEM         $NC   ${Blue}[${l}12${NC}${Blue}]$NC ${gg}SPEEDTEST VPS  $y │$NC"
+echo -e " ${y}│$NC   ${Blue}[${p}06${NC}${Blue}]$NC ${gg}MENU SYSTEM         $NC   ${Blue}[${p}12${NC}${Blue}]$NC ${gg}SPEEDTEST VPS  $y │$NC"
 echo -e " ${y}╰────────────────────────────────────────────────────╯${NC}"
 echo
 read -p "  Choose Menu In [ 1 - 12 ] : " opt
