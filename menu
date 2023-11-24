@@ -65,7 +65,7 @@ mai="datediff "$Exp" "$DATE""
 
 # Status Expired or Active
 Info="(${green}Active${NC})"
-Error="(${RED}ExpiRED${NC})"
+Error="(${RED}Expired${NC})"
 today=`date -d "0 days" +"%Y-%m-%d"`
 Exp1=$(curl -sS $url_izin | grep $MYIP | awk '{print $3}')
 if [[ $today < $Exp1 ]]; then
@@ -93,32 +93,15 @@ uram=$( free -m | awk 'NR==2 {print $3}' )
 fram=$( free -m | awk 'NR==2 {print $4}' )
 clear
 ssh_service=$(/etc/init.d/ssh status | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
-dropbear_service=$(/etc/init.d/dropbear status | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
-haproxy_service=$(systemctl status haproxy | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 xray_service=$(systemctl status xray | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 nginx_service=$(systemctl status nginx | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
-#Status | Geo Project
+#Status
 clear
 # STATUS SERVICE  SSH 
 if [[ $ssh_service == "running" ]]; then 
    status_ssh="${green}ON✓${NC}"
 else
-   status_ssh="${z}🔴${NC} "
-fi
-
-# // SSH Websocket Proxy
-ssh_ws=$( systemctl status ws | grep Active | awk '{print $3}' | sed 's/(//g' | sed 's/)//g' )
-if [[ $ssh_ws == "running" ]]; then
-    status_ws_epro="${green}ON✓${NC}"
-else
-    status_ws_epro="${z}🔴${NC} "
-fi
-
-# STATUS SERVICE HAPROXY
-if [[ $haproxy_service == "running" ]]; then 
-   status_haproxy="${green}ON✓${NC}"
-else
-   status_haproxy="${z}OFF ${NC} "
+   status_ssh="${z}OFF ${NC} "
 fi
 
 # STATUS SERVICE XRAY
@@ -135,13 +118,6 @@ else
    status_nginx="${z}OFF ${NC} "
 fi
 
-# STATUS SERVICE Dropbear
-if [[ $dropbear_service == "running" ]]; then 
-   status_dropbear="${green}ON✓${NC}"
-else
-   status_dropbear="${z}OFF ${NC} "
-fi
-#####INFOAKUN
 vlx=$(grep -c -E "^#& " "/etc/xray/config.json")
 let vla=$vlx/2
 vmc=$(grep -c -E "^### " "/etc/xray/config.json")
